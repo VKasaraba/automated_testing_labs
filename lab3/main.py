@@ -16,7 +16,7 @@ class GoodsSearch(TestCase):
         self.driver.get(WEBSITE_PATH)
         self.fake = Faker()
 
-    def xtest_search_products_with_invalid_input(self):
+    def test_search_products_with_invalid_input(self):
         ''' Test that we see "No results found" if search for something non-existent '''
         main_page = MainPage(self.driver)
         main_page.search_product_element = 'lkndsaglkjdlsajgnpodas'
@@ -24,7 +24,7 @@ class GoodsSearch(TestCase):
         search_results_page = SearchResultsPage(self.driver)
         assert not search_results_page.is_results_found()
 
-    def xtest_search_products_with_valid_input(self):
+    def test_search_products_with_valid_input(self):
         ''' Test that we see the product we searched for on the Search Result page '''
         main_page = MainPage(self.driver)
         main_page.search_product_element = 'LAFAYETTE CONVERTIBLE DRESS'
@@ -32,7 +32,7 @@ class GoodsSearch(TestCase):
         search_results_page = SearchResultsPage(self.driver)
         assert search_results_page.is_results_found()
 
-    def xtest_new_user_registration(self):
+    def test_new_user_registration(self):
         ''' Test that new user is created '''
         main_page = MainPage(self.driver)
         main_page.click_account_button()
